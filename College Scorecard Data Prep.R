@@ -1,7 +1,5 @@
 # Project: College Scorecard Data
-# https://github.com/awesomedata/awesome-public-datasets
-
-setwd("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/")
+# Data available at: https://collegescorecard.ed.gov/data/
 
 # Libraries
 library(readr)
@@ -14,27 +12,29 @@ library(tree)
 library(rpart)
 library(rpart.plot)
 
+filepath = "G:/My Drive/Personal Projects/College-Scorecard-Data/"
+
 # Importing 
-df1 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED1996_97_PP.csv", stringsAsFactors = FALSE)
-df2 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED1997_98_PP.csv", stringsAsFactors = FALSE)
-df3 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED1998_99_PP.csv", stringsAsFactors = FALSE)
-df4 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED1999_00_PP.csv", stringsAsFactors = FALSE)
-df5 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2000_01_PP.csv", stringsAsFactors = FALSE)
-df6 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2001_02_PP.csv", stringsAsFactors = FALSE)
-df7 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2002_03_PP.csv", stringsAsFactors = FALSE)
-df8 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2003_04_PP.csv", stringsAsFactors = FALSE)
-df9 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2004_05_PP.csv", stringsAsFactors = FALSE)
-df10 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2005_06_PP.csv", stringsAsFactors = FALSE)
-df11 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2006_07_PP.csv", stringsAsFactors = FALSE)
-df12 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2007_08_PP.csv", stringsAsFactors = FALSE)
-df13 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2008_09_PP.csv", stringsAsFactors = FALSE)
-df14 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2009_10_PP.csv", stringsAsFactors = FALSE)
-df15 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2010_11_PP.csv", stringsAsFactors = FALSE)
-df16 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2011_12_PP.csv", stringsAsFactors = FALSE)
-df17 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2012_13_PP.csv", stringsAsFactors = FALSE)
-df18 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2013_14_PP.csv", stringsAsFactors = FALSE)
-df19 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2014_15_PP.csv", stringsAsFactors = FALSE)
-df20 = read.csv("G:/My Drive/Personal Projects/College-Scorecard-Data/CollegeScorecard_Raw_Data/MERGED2015_16_PP.csv", stringsAsFactors = FALSE)
+df1 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED1996_97_PP.csv", sep =""), stringsAsFactors = FALSE)
+df2 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED1997_98_PP.csv", sep =""), stringsAsFactors = FALSE)
+df3 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED1998_99_PP.csv", sep =""), stringsAsFactors = FALSE)
+df4 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED1999_00_PP.csv", sep =""), stringsAsFactors = FALSE)
+df5 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2000_01_PP.csv", sep =""), stringsAsFactors = FALSE)
+df6 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2001_02_PP.csv", sep =""), stringsAsFactors = FALSE)
+df7 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2002_03_PP.csv", sep =""), stringsAsFactors = FALSE)
+df8 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2003_04_PP.csv", sep =""), stringsAsFactors = FALSE)
+df9 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2004_05_PP.csv", sep =""), stringsAsFactors = FALSE)
+df10 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2005_06_PP.csv", sep =""), stringsAsFactors = FALSE)
+df11 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2006_07_PP.csv", sep =""), stringsAsFactors = FALSE)
+df12 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2007_08_PP.csv", sep =""), stringsAsFactors = FALSE)
+df13 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2008_09_PP.csv", sep =""), stringsAsFactors = FALSE)
+df14 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2009_10_PP.csv", sep =""), stringsAsFactors = FALSE)
+df15 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2010_11_PP.csv", sep =""), stringsAsFactors = FALSE)
+df16 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2011_12_PP.csv", sep =""), stringsAsFactors = FALSE)
+df17 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2012_13_PP.csv", sep =""), stringsAsFactors = FALSE)
+df18 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2013_14_PP.csv", sep =""), stringsAsFactors = FALSE)
+df19 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2014_15_PP.csv", sep =""), stringsAsFactors = FALSE)
+df20 = read.csv(paste(filepath, "CollegeScorecard_Raw_Data/MERGED2015_16_PP.csv", sep =""), stringsAsFactors = FALSE)
 
 df1$Year = 1996
 df2$Year = 1997
